@@ -32,14 +32,13 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Здесь будет левая часть
-            const SizedBox(
-              width: 16,
-            ),
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (showVisual && visual != null) ...[visual!,
+            const SizedBox(width: 16),
+          ],
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,10 +53,13 @@ class ListItem extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: 16,
+              width: 18,
             ),
-            // Здесь будет правая часть
+            if (showControl && control != null) ...[control!,// Здесь будет правая часть
+              const SizedBox(width: 16),
+            ],
           ],
-        ));
+        )
+      );
   }
 }
