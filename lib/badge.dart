@@ -23,7 +23,8 @@ class BadgeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+      constraints: const BoxConstraints(
+          minWidth: 16, minHeight: 16, maxHeight: 24, maxWidth: 24),
       padding: variant == BadgeVariant.number
           ? const EdgeInsets.symmetric(horizontal: 8.5, vertical: 6)
           : const EdgeInsets.all(4),
